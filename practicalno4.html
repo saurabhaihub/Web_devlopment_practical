@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical No.4 - JavaScript Basics, Functions and Events</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f5f5f5;
+            margin:30px;
+        }
+
+        .container{
+            width:700px;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h1,h2{
+            text-align:center;
+            color:darkblue;
+        }
+
+        button{
+            padding:10px 20px;
+            margin:10px;
+            cursor:pointer;
+        }
+
+        input{
+            width:95%;
+            padding:10px;
+            margin:8px 0;
+        }
+
+        #result{
+            margin-top:20px;
+            background:#eeeeee;
+            padding:15px;
+            border-radius:5px;
+        }
+
+        #mouseoverText{
+            font-size:22px;
+            color:black;
+        }
+
+    </style>
+
+<script>
+
+//============================
+// Variables, Operators
+//============================
+
+function calculate()
+{
+
+let num1=20;
+let num2=10;
+
+let add=num1+num2;
+let sub=num1-num2;
+let mul=num1*num2;
+let div=num1/num2;
+
+let output="";
+
+output+="Number 1 = "+num1+"<br>";
+output+="Number 2 = "+num2+"<br><br>";
+
+output+="Addition = "+add+"<br>";
+output+="Subtraction = "+sub+"<br>";
+output+="Multiplication = "+mul+"<br>";
+output+="Division = "+div+"<br><br>";
+
+//============================
+// Conditions
+//============================
+
+if(num1>num2)
+{
+output+="20 is Greater than 10<br><br>";
+}
+else
+{
+output+="10 is Greater<br><br>";
+}
+
+//============================
+// Loops
+//============================
+
+output+="Numbers from 1 to 10<br>";
+
+for(let i=1;i<=10;i++)
+{
+output+=i+" ";
+}
+
+document.getElementById("result").innerHTML=output;
+
+}
+
+//============================
+// Function Example
+//============================
+
+function welcome()
+{
+alert("Welcome to JavaScript Practical");
+}
+
+//============================
+// Mouse Over Event
+//============================
+
+function changeColor()
+{
+document.getElementById("mouseoverText").style.color="red";
+}
+
+function normalColor()
+{
+document.getElementById("mouseoverText").style.color="black";
+}
+
+//============================
+// Form Validation
+//============================
+
+function validateForm()
+{
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let mobile=document.getElementById("mobile").value;
+let password=document.getElementById("password").value;
+
+if(name=="")
+{
+alert("Enter Name");
+return false;
+}
+
+if(email=="")
+{
+alert("Enter Email");
+return false;
+}
+
+if(!email.includes("@"))
+{
+alert("Invalid Email");
+return false;
+}
+
+if(mobile.length!=10)
+{
+alert("Mobile Number should contain 10 digits");
+return false;
+}
+
+if(password.length<6)
+{
+alert("Password should contain minimum 6 characters");
+return false;
+}
+
+alert("Form Submitted Successfully");
+
+return true;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Practical No.4</h1>
+
+<h2>JavaScript Basics, Functions and Events</h2>
+
+<hr>
+
+<h3>Variables, Operators, Conditions and Loops</h3>
+
+<button onclick="calculate()">
+Run JavaScript Program
+</button>
+
+<div id="result"></div>
+
+<hr>
+
+<h3>Function Example</h3>
+
+<button onclick="welcome()">
+Click Here
+</button>
+
+<hr>
+
+<h3>Mouse Over Event</h3>
+
+<p id="mouseoverText"
+onmouseover="changeColor()"
+onmouseout="normalColor()">
+
+Move Mouse Over This Text
+
+</p>
+
+<hr>
+
+<h3>Student Registration Form</h3>
+
+<form onsubmit="return validateForm()">
+
+<label>Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter Name">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
+
+<label>Mobile Number</label>
+
+<input
+type="text"
+id="mobile"
+placeholder="Enter Mobile Number">
+
+<label>Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<br><br>
+
+<input
+type="submit"
+value="Submit">
+
+</form>
+
+</div>
+
+</body>
+</html>
